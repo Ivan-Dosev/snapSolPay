@@ -1,0 +1,526 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  height: 100%;
+}
+
+/* Custom theme colors - More consistent color scheme */
+:root {
+  --primary: #1A237E; /* Dark blue */
+  --primary-light: #3949AB;
+  --primary-dark: #0D1453;
+  --secondary: #FF9800; /* Orange */
+  --secondary-light: #FFB74D;
+  --secondary-dark: #F57C00;
+  --accent: #E91E63; /* Pink */
+  --accent-light: #F06292;
+  --accent-dark: #C2185B;
+  --success: #42B883;
+  --warning: #FBBD23;
+  --error: #FF4B4B;
+  --background-light: #F7F8F9;
+  --background-dark: #0F1642;
+  --card-light: #FFFFFF;
+  --card-dark: #1A1F36;
+  --text-light: #1A237E;
+  --text-dark: #F7F8F9;
+  --text-muted-light: #6B7280;
+  --text-muted-dark: #9CA3AF;
+}
+
+/* Override DaisyUI theme colors */
+.btn-primary {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.bg-primary {
+  background-color: var(--primary) !important;
+}
+
+.btn-outline.btn-primary {
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+.btn-outline.btn-primary:hover {
+  background-color: var(--primary) !important;
+  color: white !important;
+}
+
+.btn-secondary {
+  background-color: var(--secondary) !important;
+  border-color: var(--secondary) !important;
+}
+
+/* Wallet button styling - Fixed to be visible */
+.wallet-adapter-button-trigger {
+  background-color: var(--primary) !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem 1rem !important;
+  height: auto !important;
+}
+
+.wallet-adapter-dropdown-list,
+.wallet-adapter-dropdown-list-item {
+  border-radius: 0.5rem !important;
+}
+
+.wallet-adapter-button {
+  background-color: var(--primary) !important;
+  color: white !important;
+  padding: 0 1rem !important;
+  height: 2.5rem !important;
+  font-size: 0.875rem !important;
+  border-radius: 0.5rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  border: 1px solid transparent !important;
+  display: flex !important;
+  align-items: center !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.wallet-adapter-button.wallet-connected {
+  background-color: #10B981 !important; /* Success green color */
+  color: white !important;
+}
+
+.wallet-adapter-button:hover {
+  opacity: 0.9 !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+.wallet-adapter-button.wallet-connected:hover {
+  background-color: #059669 !important; /* Darker green on hover */
+}
+
+.wallet-adapter-button-trigger {
+  justify-content: center !important;
+}
+
+.wallet-adapter-button:not([disabled]):hover {
+  background-color: var(--primary-light) !important;
+}
+
+/* Card styling */
+.card {
+  border-radius: 1rem !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid #EAECEF !important;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out !important;
+}
+
+.card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Table styling */
+table {
+  border-radius: 1rem !important;
+  overflow: hidden !important;
+}
+
+.table th {
+  background-color: #F7F8F9 !important;
+  color: var(--text-muted-light) !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.05em !important;
+}
+
+.table tr {
+  border-bottom: 1px solid #EAECEF !important;
+}
+
+.table tr:last-child {
+  border-bottom: none !important;
+}
+
+/* Input styling */
+.input, .select, .textarea {
+  border-radius: 0.5rem !important;
+  border: 1px solid #EAECEF !important;
+  padding: 0.75rem 1rem !important;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out !important;
+}
+
+.input:focus, .select:focus, .textarea:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 3px rgba(10, 15, 37, 0.1) !important;
+}
+
+/* Dashboard UI components */
+.stat {
+  border-radius: 1rem !important;
+  border: 1px solid #EAECEF !important;
+  padding: 1.5rem !important;
+  background-color: white !important;
+}
+
+.stat-title {
+  color: var(--text-muted-light) !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+}
+
+.stat-value {
+  color: var(--text-light) !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  margin-top: 0.5rem !important;
+}
+
+.stat-desc {
+  color: var(--text-muted-light) !important;
+  font-size: 0.875rem !important;
+}
+
+/* Badge styling */
+.badge {
+  font-weight: 500 !important;
+  border-radius: 0.5rem !important;
+  padding: 0.375rem 0.75rem !important;
+  text-transform: none !important;
+  font-size: 0.75rem !important;
+}
+
+.badge-success {
+  background-color: rgba(66, 184, 131, 0.1) !important;
+  color: var(--success-color) !important;
+}
+
+.badge-error {
+  background-color: rgba(255, 75, 75, 0.1) !important;
+  color: var(--error-color) !important;
+}
+
+.badge-warning {
+  background-color: rgba(249, 174, 77, 0.1) !important;
+  color: var(--warning-color) !important;
+}
+
+/* Accent colors and components */
+.accent-gradient {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Add a light animation to the klarna-card to make it more eye-catching */
+@keyframes subtle-glow {
+  0% {
+    box-shadow: 0 10px 25px rgba(10, 15, 37, 0.2);
+  }
+  50% {
+    box-shadow: 0 15px 30px rgba(10, 15, 37, 0.3);
+  }
+  100% {
+    box-shadow: 0 10px 25px rgba(10, 15, 37, 0.2);
+  }
+}
+
+.klarna-card {
+  background: linear-gradient(135deg, #0A0F25 0%, #1F2B5E 100%);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(10, 15, 37, 0.2);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  color: white;
+  animation: subtle-glow 3s infinite ease-in-out;
+}
+
+.klarna-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.03) 30%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.03) 50%,
+    transparent 100%
+  );
+  transform: rotate(-15deg);
+  z-index: 0;
+}
+
+/* Improve card item styling */
+.klarna-card .bg-white.bg-opacity-10 {
+  transition: all 0.2s ease;
+}
+
+.klarna-card .bg-white.bg-opacity-10:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Fix hero button styles */
+.bg-primary {
+  background-color: var(--primary);
+  color: white !important;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+/* Fix for feature cards in hero section - Make colors consistent */
+.hero-features-container {
+  width: 100%;
+  position: relative;
+  margin-top: 3rem !important;
+  z-index: 10;
+}
+
+.hero-features-card {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(8px);
+  border-radius: 1rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  padding: 1.5rem !important;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1000px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.hero-features-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .hero-features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .hero-feature-item {
+    padding: 1.25rem;
+  }
+}
+
+.hero-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.75rem;
+  transition: all 0.2s ease;
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hero-feature-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.hero-feature-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+  background-color: rgba(79, 70, 229, 0.2);
+  backdrop-filter: blur(2px);
+}
+
+.hero-feature-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--primary);
+}
+
+.hero-feature-content {
+  flex: 1;
+}
+
+.hero-feature-content h3 {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: 1.1rem;
+}
+
+.hero-feature-content p {
+  line-height: 1.4;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode overrides */
+.dark .card {
+  background-color: var(--card-dark) !important;
+  border-color: #2D3748 !important;
+}
+
+.dark .table th {
+  background-color: #1A202C !important;
+  color: var(--text-muted-dark) !important;
+}
+
+.dark .table tr {
+  border-bottom-color: #2D3748 !important;
+}
+
+.dark .input, .dark .select, .dark .textarea {
+  background-color: #1A202C !important;
+  border-color: #2D3748 !important;
+  color: var(--text-dark) !important;
+}
+
+.dark .stat {
+  background-color: var(--card-dark) !important;
+  border-color: #2D3748 !important;
+}
+
+.dark .btn-primary {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+/* Custom animation for loading states */
+@keyframes pulse-bg {
+  0%, 100% {
+    background-color: rgba(10, 15, 37, 0.05);
+  }
+  50% {
+    background-color: rgba(10, 15, 37, 0.1);
+  }
+}
+
+.loading-pulse {
+  animation: pulse-bg 1.5s infinite ease-in-out;
+  border-radius: 0.5rem;
+}
+
+/* Fix dropdown positioning */
+.wallet-adapter-dropdown {
+  height: 40px !important;
+}
+
+/* Fix SVG icons in wallet button */
+.wallet-adapter-button .wallet-adapter-button-start-icon,
+.wallet-adapter-button .wallet-adapter-button-end-icon {
+  width: 20px !important;
+  height: 20px !important;
+  margin: 0 8px 0 0 !important;
+}
+
+/* Button text for improved readability */
+.btn-primary {
+  color: white !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Dark buttons need better contrast */
+.bg-primary {
+  color: white !important;
+  position: relative;
+}
+
+/* Add a slight background lighter shade for dark buttons with text */
+.btn.bg-primary, 
+.btn.btn-primary {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  border: none !important;
+}
+
+/* Ensure all buttons with primary background have good text contrast */
+.btn.bg-primary, 
+.btn.btn-primary, 
+button.bg-primary, 
+button.btn-primary {
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* Make the wallet button more visible */
+.wallet-adapter-button,
+.wallet-adapter-button-trigger {
+  background-color: var(--primary) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Fix specific styling for the ClusterUiSelect button */
+.rounded-lg.bg-gray-100.border.border-gray-300 {
+  background-color: var(--primary) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+}
+
+/* Ensure the dots in the buttons have good contrast */
+.w-2.h-2.bg-green-400.rounded-full,
+.w-2.h-2.bg-green-500.rounded-full {
+  background-color: #4ADE80 !important; /* Brighter green */
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Completely override select styling to ensure visibility */
+select {
+  -webkit-appearance: menulist !important;
+  appearance: menulist !important;
+  background-color: white !important;
+  color: #111827 !important;
+  border: 1px solid #D1D5DB !important;
+  padding: 0.5rem !important;
+  border-radius: 0.375rem !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+  width: 100% !important;
+}
+
+select option {
+  background-color: white !important;
+  color: #111827 !important;
+  padding: 0.5rem !important;
+}
+
+/* Make table cells properly spaced and visible */
+.table td select {
+  min-width: 100% !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Override any DaisyUI classes that hide select text */
+.select, 
+.select-bordered, 
+.select:focus,
+.select-bordered:focus {
+  color: #111827 !important;
+  background-color: white !important;
+}
