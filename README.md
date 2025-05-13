@@ -64,8 +64,9 @@ pnpm dev
 - [x] Extract and display bill items in table
 - [x] Manual item addition for items not detected by AI
 - [x] Contact management for bill splitting
+- [x] Implement bill payment via Solana
 - [ ] Save analysis history
-- [ ] Implement bill payment via Solana
+
 
 ## Usage
 
@@ -74,11 +75,11 @@ pnpm dev
 3. Upload a photo of your bill or receipt by:
    - Clicking the upload button to select a file
    - Dragging and dropping an image onto the upload area
+   - if you are on a mobile device, you can also take a photo with the device camera
 4. Review the uploaded image and submit for analysis
 5. View the detailed breakdown of your bill
 6. Add any missing items that weren't automatically detected
 7. Select items and assign them to different contacts for bill splitting
-8. (Coming soon) Pay bills directly through Solana
 
 ## Troubleshooting
 
